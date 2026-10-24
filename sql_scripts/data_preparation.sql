@@ -15,7 +15,7 @@ create view festival_weekly_base as(
         t.festival, 
         state,
         d.date as festival_date,
-        round(datediff(d.date, t.week)/7) as wk_before
+        floor(datediff(d.date, t.week)/7) as wk_before
     from trends t
     join dates d
         on t.festival = d.festival
